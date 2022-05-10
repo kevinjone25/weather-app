@@ -18,21 +18,21 @@ class _LoadingState extends State<Loading> {
 
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
-      'first_startTime': instance.first_startTime,
-      'first_probability': instance.first_probability,
-      'second_startTime': instance.second_startTime,
+      'first_startTime': instance.firstStartTime,
+      'first_probability': instance.firstProbability,
+      'second_startTime': instance.secondStartTime,
     });
   }
 
   @override
   void initState() {
     super.initState();
-    setWeather();
+    WidgetsBinding.instance!.addPostFrameCallback((_) => setWeather());
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         backgroundColor: Colors.black,
         body: Center(
           child: SpinKitRipple(
