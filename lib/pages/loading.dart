@@ -18,9 +18,9 @@ class _LoadingState extends State<Loading> {
 
     Navigator.pushReplacementNamed(context, '/home', arguments: {
       'location': instance.location,
-      'first_startTime': instance.firstStartTime,
-      'first_probability': instance.firstProbability,
-      'second_startTime': instance.secondStartTime,
+      'firstStartTime': instance.firstStartTime,
+      'firstProbability': instance.firstProbability,
+      'secondStartTime': instance.secondStartTime,
     });
   }
 

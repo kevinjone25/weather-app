@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
                 ),
                 const SizedBox(height: 30),
                 Text(
-                  data['first_startTime'] + '-' + data['second_startTime'],
+                  data['firstStartTime'] + '-' + data['secondStartTime'],
                   style: TextStyle(
                     fontSize: 45,
                     color:
@@ -49,15 +49,15 @@ class _HomeState extends State<Home> {
                 ),
                 const SizedBox(height: 10),
                 Icon(
-                    data['first_probability'] == 0
+                    data['firstProbability'] == 0
                         ? Icons.light_mode
                         : Icons.water_drop,
                     size: 50,
-                    color: data['first_probability'] == 0
+                    color: data['firstProbability'] == 0
                         ? Colors.amber
                         : Colors.blue),
                 const SizedBox(height: 15),
-                Text(data['first_probability'] + '%',
+                Text(data['firstProbability'] + '%',
                     style: TextStyle(
                       fontSize: 35,
                       letterSpacing: 2,

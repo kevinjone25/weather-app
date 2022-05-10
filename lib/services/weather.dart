@@ -14,7 +14,7 @@ class Weather {
   Future<void> getWeather() async {
     try {
       Response response = await get(Uri.parse(
-          "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-005?Authorization=[Your Auth]&format=JSON&locationName=%E4%B8%AD%E5%A3%A2%E5%8D%80&elementName=PoP6h"));
+          "https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-005?Authorization=CWB-301D11AD-8367-40BE-A476-70321A6A434C&format=JSON&locationName=%E4%B8%AD%E5%A3%A2%E5%8D%80&elementName=PoP6h"));
       WeatherResponse weatherResponse =
           WeatherResponse.fromJson(json.decode(response.body));
 
