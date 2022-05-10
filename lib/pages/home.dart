@@ -8,20 +8,24 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  Map data = {};
+  Map<String, dynamic> data = {};
 
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context)!.settings.arguments as Map;
-    bool night_condition = DateTime.now().hour > 18 && DateTime.now().hour < 8;
+    data = Map<String, dynamic>.from(
+        (ModalRoute.of(context)?.settings.arguments ?? {})
+            as Map<dynamic, dynamic>);
+
+    bool nightCondition = DateTime.now().hour > 18 && DateTime.now().hour < 8;
+
     return Scaffold(
-        backgroundColor: night_condition ? Colors.grey[200] : Colors.grey[900],
+        backgroundColor: nightCondition ? Colors.grey[200] : Colors.grey[900],
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -29,22 +33,21 @@ class _HomeState extends State<Home> {
                         style: TextStyle(
                           fontSize: 28,
                           letterSpacing: 2,
-                          color: !night_condition
-                              ? Colors.grey[200]
-                              : Colors.black,
+                          color:
+                              !nightCondition ? Colors.grey[200] : Colors.black,
                         ))
                   ],
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Text(
                   data['first_startTime'] + '-' + data['second_startTime'],
                   style: TextStyle(
                     fontSize: 45,
                     color:
-                        !night_condition ? Colors.grey[200] : Colors.grey[900],
+                        !nightCondition ? Colors.grey[200] : Colors.grey[900],
                   ),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Icon(
                     data['first_probability'] == 0
                         ? Icons.light_mode
@@ -53,14 +56,13 @@ class _HomeState extends State<Home> {
                     color: data['first_probability'] == 0
                         ? Colors.amber
                         : Colors.blue),
-                SizedBox(height: 15),
+                const SizedBox(height: 15),
                 Text(data['first_probability'] + '%',
                     style: TextStyle(
                       fontSize: 35,
                       letterSpacing: 2,
-                      color: !night_condition
-                          ? Colors.grey[200]
-                          : Colors.grey[900],
+                      color:
+                          !nightCondition ? Colors.grey[200] : Colors.grey[900],
                     )),
               ],
             ),
